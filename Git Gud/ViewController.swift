@@ -22,6 +22,13 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func setupCardUI() {
+        questionTextView.text = Cardcollection.instance.currentCard.question
+        
+        questionLabel.text = "question \(Cardcollection.instance.currentIndex + 1)/\(Cardcollection.instance.cards.count)"
+    
+    }
 
 
 }

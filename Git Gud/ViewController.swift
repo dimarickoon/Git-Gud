@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var questionTextView: UITextView!
+    @IBOutlet weak var answerPickerView: UIPickerView!
+    @IBOutlet weak var questionLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

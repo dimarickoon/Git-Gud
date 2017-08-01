@@ -14,36 +14,43 @@ class Flashcard {
     var options : [String]
     var correctAnswer : String
     
-    init(question : String, options : [String]) {
+    init(question : String, options : [String]){
         self.question = question
         self.options = options
         
         self.correctAnswer = options[0]
     }
 }
-class Cardcollection {
-    public static var instance : Cardcollection = Cardcollection()
+
+class CardCollection {
     
+    // Single instance of the card collection
+    public static var instance : CardCollection = CardCollection()
+    
+    // The list of flashcards
     public private(set) var cards : [Flashcard]
     
+    // Which question are we on?
     public private(set) var currentIndex : Int
     
+    // Get the current card.
     public var currentCard : Flashcard {
         get { return cards[currentIndex] }
     }
     
-    private init() {
+    private init(){
         
-        cards = [ Flashcard(question: "Your name is dima", options: ["True","False"]),
-                  Flashcard(question: "What's the capitol of Ukraine?", options:["Kiev", "Moscow", "Seattle", "London"]),
+        cards = [ Flashcard(question: "Test Question", options: ["True","False"]),
+                  Flashcard(question: "What's the capitol of Washington state?", options:["Olympia", "Tacoma", "Seattle", "Spokane"]),
                   Flashcard(question: "Where is iD Tech's headquarters?", options:["Campbell, CA", "Albequerque, NM", "Beijing, CN"])]
         
-        currentIndex = 0
+        currentIndex = 0;
+        
     }
     
     public func nextQuestion() {
         currentIndex += 1
-        if currentIndex >= cards.count {
+        if(currentIndex >= cards.count){
             currentIndex = 0
         }
     }
